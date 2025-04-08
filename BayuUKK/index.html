@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script src="./pemutar.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/bp.png" type="image">
+    <title>My Song</title>
+    <style>
+        body {
+            background-color: black;
+            color: rgba(196, 187, 187, 0.938);
+            padding-top: 80px;
+        }
+
+        .navbar {
+            z-index: 9999;
+        }
+
+        .offcanvas-header .offcanvas-title {
+            color: white;
+        }
+
+        .card-body img {
+            border-radius: 50%;
+        }
+
+        .container p {
+            white-space: pre-line;
+            overflow-y: scroll;
+            height: 200px;
+        }
+
+        /* Additional styling for mobile responsiveness */
+        .card {
+            border-radius: 15%;
+            margin-top: 20px;
+        }
+
+        /* Adjustments for bottom player container */
+        .navbar.fixed-bottom {
+            background-color: #f8f9fa !important;
+        }
+
+        .navbar button {
+            background-color: #28a745;
+        }
+
+        /* Flex styling for horizontal layout */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+        }
+
+        /* Ensure horizontal buttons on smaller screens */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Offcanvas menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="background-color: #000;">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Song list</h5>
+           
+        </div>
+        <div class="offcanvas-body">
+            <input type="text" id="katakunci" class="form-control mb-3">
+            <button onclick="cariLagu()" class="btn btn-outline-light">
+                <img src="./img/cari.png" alt="" width="20px" height="20px"> 
+                <button type="button" class="btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </button>
+            <div id="listlagu" class="text-white mt-3"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color: #020202; font-weight: bold;" href="#">
+                <img src="./img/bp.png" alt="" width="40px" height="35px"> Music
+            </a>
+            <button class="btn btn-light bg-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <img src="./img/list.png" alt="Menu" width="20px" height="20px">
+            </button>
+        </div>
+    </nav>
+
+    <!-- Song Info Card -->
+    <center>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <img id="gbrartis" alt="Artist Image" height="200px" width="200px">
+                <h1 id="namaartis" style="color: rgb(42, 165, 93);"></h1>
+                <h5 id="judullagu" style="color: rgb(185, 95, 95);"></h5>
+            </div>
+        </div>
+    </center>
+
+    <!-- Lyrics Section -->
+    <center>
+        <div class="container mt-5">
+            <p style="white-space: pre-line; overflow-y: scroll; height: 200px;" class="fst-italic" id="liriklagu"></p>
+        </div>
+    </center>
+
+    <!-- Lottie Animation (Optional) -->
+    <center>
+        <div class="fixed-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+                        <dotlottie-player src="https://lottie.host/18b7d103-c979-407a-9f56-94081e065df5/J4m3mCsXBY.lottie" background="transparent" speed="1.3" style="width: 100px; height: 300px" loop autoplay></dotlottie-player>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+
+    <!-- Bottom Navigation Bar (Audio Controls) -->
+    <center>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+            <div class="container-fluid">
+                <!-- Flexbox for Left and Right Buttons -->
+                <div class="nav-buttons">
+                    <button class="btn btn-light bg-success" onclick="laguSebelum()">
+                        <img src="./img/prev.png" alt="Previous" width="20px" height="20px">
+                    </button>
+                    <audio id="pemutarlagu" style="height: 30px; width: 300px;" controls onended="laguBerikut()"></audio>
+                    <button class="btn btn-light bg-success" onclick="laguBerikut()">
+                        <img src="./img/next.png" alt="Next" width="20px" height="20px">
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </center>
+
+</body>
+
+</html>

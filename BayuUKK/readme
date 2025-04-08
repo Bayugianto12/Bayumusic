@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    
+    </div>
+  </div>
+</nav>
+
+
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/4e3f4185-1a95-4582-8e28-ce49118905ef/tnvRCoTuYV.lottie" background="transparent" speed="1.2" style= "width: 100px; height: 100px"   loop autoplay></dotlottie-player>
+
+
+
+
+<div class="fixed-bottom">
+  <script
+  src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+  type="module"
+></script>
+
+<dotlottie-player
+  src="https://lottie.host/e176de46-eb06-4bc0-a9f3-01cb426e1bb6/cPf7e3R9Vh.lottie"
+  background="transparent"
+  speed="1.1"
+  style="width: 64px; height: 64px"
+  loop
+  autoplay
+></dotlottie-player>
+   <b><h5>Music Bayu</h5></b>
+  <div class="container">
+      <div class="row">
+        <div class="col">
+        
+        
+        </div>
+        <div class="col">
+          
+        </div>
+        <div class="col">
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="fixed-top" style="background: #000;">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-light bg-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                  <img src="./img/list.png" alt="" width="20px" height="20px">
+                </button>
+            </div>
+            <div class="col">
+              <button class="btn btn-light bg-success" onclick="laguSebelum()">
+                  <img src="./img/prev.png" alt=""  width="20px" height="20px">
+                  </button>
+            </div>
+            <div class="col">
+              <button class="btn btn-light bg-success" onclick="laguBerikut()">
+                  <img src="./img/next.png" alt=""  width="20px" height="20px">
+                  </button>
+            </div>
+          </div>
+    </div>
